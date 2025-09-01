@@ -5,7 +5,8 @@ public class ExtractorDeAñoCompleto {
 
     public static void main(String[] args) {
     	 System.out.println("Ejercicio con metodos");
-        String numID = leeNumdeIdentidad();       
+        String numID = leeNumdeIdentidad();
+       
         // Condicional para defibnir las caracteristicas de la operacion con if, else
         if (esNumeroValido(numID)) {
             int añoCompleto = obtenerAñoCompleto(numID);
