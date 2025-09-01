@@ -1,0 +1,38 @@
+
+import java.util.Scanner;
+
+public class ExtractorDeAñoCompleto {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el número de tarjeta de identidad (11 dígitos): ");
+        String numeroID = scanner.nextLine();
+
+        if (numeroID.length() == 11 && numeroID.charAt(0) != '0') {
+            String añoStr = numeroID.substring(0, 2);
+            int añoCorto = Integer.parseInt(añoStr);
+            int añoCompleto;
+
+            // Suponemos que si es menor o igual a 24, es siglo XXI (2000+)
+            if (añoCorto <= 24) {
+                añoCompleto = 2000 + añoCorto;
+            } else {
+                añoCompleto = 1900 + añoCorto;
+            }
+
+            System.out.println("Año de nacimiento completo: " + añoCompleto);
+
+            if (añoCompleto < 2000) {
+                System.out.println("Siglo: XX");
+            } else {
+                System.out.println("Siglo: XXI");
+            }
+        } else {
+            System.out.println("Número inválido. Debe tener exactamente 11 dígitos y no comenzar con 0.");
+        }
+
+        scanner.close();
+    }
+}
+
+}

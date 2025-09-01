@@ -1,0 +1,56 @@
+
+import java.util.Scanner;
+
+public class ExtractorDeAñoCompleto {
+
+    public static void main(String[] args) {
+        String numID = leeNumdeIdentidad();
+        // Condicional para defibnir las caracteristicas de la operacion con if, else
+        if (esNumeroValido(numID)) {
+            int añoCompleto = obtenerAñoCompleto(numID);
+            String siglo = determinarSiglo(añoCompleto);
+            mostrarResultado(añoCompleto, siglo);
+        } else {
+            System.out.println("Recuerde que es un Número inválido. Se debe tener exactamente 11 dígitos y no comenzar con 0.");
+        }
+    }
+
+    // Método solicitud de la entidad 
+    public static String leeNumdeIdentidad() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el número de tarjeta de identidad, para la prueba son (11 dígitos): ");
+        String numero = scanner.nextLine();
+        scanner.close();
+        return numero;
+    }
+
+    // Método para regla para establer el rango y ejecutar las operaciones  de los metodos
+    public static boolean esNumeroValido(String numero) {
+        return numero.length() == 11 && numero.charAt(0) != '0' && numero.matches("\\d{11}");
+    }
+
+    // Método rango de para establecer el año en el que nacion una persona(1986, 2005, etc.)
+    public static int obtenerAñoCompleto(String numeroID) {
+        int añoCorto = Integer.parseInt(numeroID.substring(0, 2));
+        if (añoCorto <= 24) {
+            return 2000 + añoCorto;
+        } else {
+            return 1900 + añoCorto;
+        }
+    }
+
+    // Método para establecer el rango  y el siglo en el que nacio un usuario
+    public static String determinarSiglo(int añoCompleto) {
+        if (añoCompleto < 2000) {
+            return "XX";
+        } else {
+            return "XXI";
+        }
+    }
+
+    // Método para ejecutar el resultado de la combinacion de los metodos
+    public static void mostrarResultado(int añoCompleto, String siglo) {
+        System.out.println("Ano de naciemiento: " + añoCompleto);
+        System.out.println("Siglo en el que Nacio: " + siglo);
+    }
+}

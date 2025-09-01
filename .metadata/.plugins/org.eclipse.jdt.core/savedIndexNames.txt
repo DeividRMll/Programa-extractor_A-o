@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\David\Documents\Documen_Deivid\SEPTIMO SEMESTRE\CONCEPTOS FUNDAMENTALES DE PROGRAMACIÓN\Programa extractor_Año\.metadata\.plugins\org.eclipse.jdt.core
+3208445827.index
+1865797976.index
+2000658697.index
